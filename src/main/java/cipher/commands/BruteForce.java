@@ -3,10 +3,10 @@ package cipher.commands;
 import cipher.entity.Result;
 import cipher.entity.ResultCode;
 
-public class Encoder implements Action {
+public class BruteForce implements Action {
     @Override
     public Result execute(String[] parameters) {
         //TODO something do
-        return new Result("encode all right", ResultCode.OK);
+        return new Result("brute force all right", ResultCode.OK);
     }
 }

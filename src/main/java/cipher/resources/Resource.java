@@ -1,4 +1,4 @@
-package cipher.resources.files;
+package cipher.resources;
 
 public class Resource {
     private static final char[] ALPHABET = {
@@ -24,9 +24,11 @@ public class Resource {
             "Кстати. Легко взломать шифр и без такого файла и анализа: попробуйте угадать пробел — \n" +
             "это наверняка наиболее часто встречающийся символ в обычном тексте.";
 
-    private static final String INPUT_FILE_NAME = "/Users/alexcemen/javarush/3548974/javarush-project/src/com/javarush/task/projectModul1/java/inputFile";
-    private static final String ENCRYPT_FILE_NAME = "/Users/alexcemen/javarush/3548974/javarush-project/src/com/javarush/task/projectModul1/java/encryptFile";
-    private static final String DECRYPT_FILE_NAME = "/Users/alexcemen/javarush/3548974/javarush-project/src/com/javarush/task/projectModul1/java/decryptText";
+    private static final String INPUT_FILE_NAME = "/Users/alexcemen/IdeaProjects/JRprojectModul1/text/text.txt";
+    private static final String ENCRYPT_FILE_NAME = "/Users/alexcemen/IdeaProjects/JRprojectModul1/text/encryptFile";
+    private static final String DECRYPT_FILE_NAME = "/Users/alexcemen/IdeaProjects/JRprojectModul1/text/decryptText";
+    private static final String BRUT_FORCE_FILE_NAME = "/Users/alexcemen/IdeaProjects/JRprojectModul1/text/decryptText";
+    private static final String STATISTICAL_ANALYZER_FILE_NAME = "/Users/alexcemen/IdeaProjects/JRprojectModul1/text/statisticalAnalyzer.txt";
 
     public static char[] getALPHABET() {
         return ALPHABET;
@@ -41,4 +43,8 @@ public class Resource {
     }
 
     public static String getDecryptFileName() { return DECRYPT_FILE_NAME;}
+
+    public static String getBrutForceFileName() { return BRUT_FORCE_FILE_NAME;}
+
+    public static String getStatisticalAnalyzerFileName() { return STATISTICAL_ANALYZER_FILE_NAME; }
 }
