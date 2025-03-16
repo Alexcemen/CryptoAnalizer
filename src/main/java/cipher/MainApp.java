@@ -1,10 +1,12 @@
 package cipher;
 
+import cipher.resources.files.Resource;
+
 public class MainApp {
 
     public static void makeIndent() {
         System.out.println("***********");
-        System.out.println();
+        System.out .println();
     }
 
     public static void main(String[] args) {
