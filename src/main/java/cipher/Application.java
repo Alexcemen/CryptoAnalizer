@@ -10,19 +10,17 @@ public class Application {
 
     private MainController mainController;
 
-
     public Application() {
         mainController = new MainController();
     }
 
-    public Result run(String[] args) {
-        //аргументы: {encode, text.txt, encode.txt, 12}
-        if (args.length > 0) {
-            String action = args[0]; //encode
-            //parameters: text.txt, encode.txt, 12
-            String[] parameters = Arrays.copyOfRange(args, 1, args.length);
-            return mainController.doAction(action, parameters);
+    public Result run(String[] arguments) {
+        if (arguments.length > 0) {
+            String action = arguments[0];
+            String[] otherParameters = Arrays.copyOfRange(arguments, 1, arguments.length);
+            return mainController.doAction(action, otherParameters);
+        } else {
+            throw new AppException("not arguments");
         }
-        throw new AppException();
     }
 }

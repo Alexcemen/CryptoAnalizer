@@ -4,10 +4,10 @@ import cipher.entity.Result;
 
 public class ConsoleRunner {
     public static void main(String[] args) {
-        System.out.println("sdfsdf");
-        //аргументы: {encode, text.txt, encode.txt, 12}
+        ConsoleInput consoleInput = new ConsoleInput();
+        String[] arguments = consoleInput.requestMainArguments();
         Application application = new Application();
-        Result result = application.run(args);
+        Result result = application.run(arguments);
         System.out.println(result);
     }
 }

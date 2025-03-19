@@ -15,11 +15,12 @@ public class FileManager {
         try (BufferedReader bufferedReader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
+                stringBuilder.append(line).append(System.lineSeparator());
             }
         } catch (IOException e) {
             throw new RuntimeException("Ошибка чтения файла: " + filePath, e);
         }
+        removeEndingNewline(stringBuilder);
         return stringBuilder.toString();
     }
 
@@ -30,5 +31,12 @@ public class FileManager {
         } catch (IOException e) {
             throw new RuntimeException("Ошибка записи файла: " + filePath, e);
         }
+    }
+
+    public static StringBuilder removeEndingNewline(StringBuilder stringBuilder) {
+        if (!stringBuilder.isEmpty() && stringBuilder.charAt(stringBuilder.length() - 1) == '\n') {
+            stringBuilder.setLength(stringBuilder.length() - 1);
+        }
+        return stringBuilder;
     }
 }
