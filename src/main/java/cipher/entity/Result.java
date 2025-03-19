@@ -13,9 +13,8 @@ public class Result {
 
     @Override
     public String toString() {
-        return "Result{" +
+        return "Результат: " +
                 "message='" + message + '\'' +
-                ", resultCode=" + resultCode +
-                '}';
+                ", resultCode=" + resultCode;
     }
 }

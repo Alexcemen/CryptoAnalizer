@@ -1,27 +1,19 @@
 package cipher.commands;
-
-import cipher.FileManager;
 import cipher.entity.Result;
 import cipher.entity.ResultCode;
-import cipher.resources.Alphabet;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class BruteForce implements Action {
+public class BruteForce extends CommonCommand implements Action {
 
-    static char[] alphabet = Alphabet.getAlphabet();
-    FileManager fileManager = new FileManager();
     private static final String WARNING_ABOUT_ENTERING_INCORRECT_CHARACTERS = "ПАНИКА! КТО-ТО ПРИСЛАЛ НА РАСШИФРОВКУ ТЕКСТ С ЛЕВЫМИ СИМВОЛАМИ!!!";
-
 
     @Override
     public Result execute(String[] parameters) {
         String inputFileName = parameters[0];
         String outputFileName = parameters[1];
-
         String text = getText(inputFileName);
         String decryptedText = brutForce(text);
         fileManager.writeFile(decryptedText, outputFileName);
@@ -32,17 +24,11 @@ public class BruteForce implements Action {
         char mostFrequentCharInText = findMostFrequentChar(text);
         int positionSpaceCharInAlphabet = Arrays.binarySearch(alphabet, ' ');
         int positionMostFrequentCharInAlphabet = Arrays.binarySearch(alphabet, mostFrequentCharInText);
-        int key;
-        if (positionSpaceCharInAlphabet > positionMostFrequentCharInAlphabet) {
-            key = positionSpaceCharInAlphabet - positionMostFrequentCharInAlphabet;
-        } else {
-            key = positionMostFrequentCharInAlphabet - positionSpaceCharInAlphabet;
+        if (positionSpaceCharInAlphabet < 0 || positionMostFrequentCharInAlphabet < 0) {
+            throw new IllegalArgumentException("Ошибка: в алфавите отсутствует пробел или частый символ не найден.");
         }
+        int key = Math.abs(positionSpaceCharInAlphabet - positionMostFrequentCharInAlphabet);
         return decrypt(text, key);
-    }
-
-    private String getText(String inputFileName) {
-        return fileManager.readFile(inputFileName);
     }
 
     private static char findMostFrequentChar(String text) {
@@ -74,9 +60,4 @@ public class BruteForce implements Action {
         }
         return decryptedText.toString();
     }
-
-    private static boolean checkCharInAlphabet(char ch) {
-        return Arrays.binarySearch(alphabet, ch) >= 0;
-    }
-
 }

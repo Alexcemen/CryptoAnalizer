@@ -7,10 +7,8 @@ import cipher.resources.Alphabet;
 
 import java.util.Arrays;
 
-public class Decoder implements Action {
+public class Decoder extends CommonCommand implements Action {
 
-    static char[] alphabet = Alphabet.getAlphabet();
-    FileManager fileManager = new FileManager();
     private static final String WARNING_ABOUT_ENTERING_INCORRECT_CHARACTERS = "ПАНИКА! КТО-ТО ПРИСЛАЛ НА РАСШИФРОВКУ ТЕКСТ С ЛЕВЫМИ СИМВОЛАМИ!!!";
 
     @Override
@@ -18,7 +16,6 @@ public class Decoder implements Action {
         String inputFileName = parameters[0];
         String outputFileName = parameters[1];
         int key = Integer.parseInt(parameters[2]);
-
         String inputText = getText(inputFileName);
         String decryptedText = decrypt(inputText, key);
         fileManager.writeFile(decryptedText, outputFileName);
@@ -40,13 +37,4 @@ public class Decoder implements Action {
         }
         return decryptedText.toString();
     }
-
-    private String getText(String inputFileName) {
-        return fileManager.readFile(inputFileName);
-    }
-
-    private static boolean checkCharInAlphabet(char ch) {
-        return Arrays.binarySearch(alphabet, ch) >= 0;
-    }
-
 }

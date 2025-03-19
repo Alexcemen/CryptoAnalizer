@@ -1,15 +1,13 @@
 package cipher.controllers;
 
-import cipher.commands.Action;
-import cipher.commands.BruteForce;
-import cipher.commands.Decoder;
-import cipher.commands.Encoder;
+import cipher.commands.*;
 import cipher.exeptions.AppException;
 
 public enum Actions {
     ENCODE(new Encoder()), 
     DECODE(new Decoder()),
-    BRUTE_FORCE(new BruteForce());
+    BRUTE_FORCE(new BruteForce()),
+    STATISTICAL_ANALYZER(new StatisticalAnalyzer());
     
     private final Action action;
 
