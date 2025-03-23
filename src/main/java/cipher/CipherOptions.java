@@ -11,16 +11,16 @@ public enum CipherOptions {
 
     private final CipherOption cipherOption;
 
-    CipherOptions(CipherOption cipherOption) {
-        this.cipherOption = cipherOption;
+    CipherOptions(CipherOption abstractOption) {
+        this.cipherOption = abstractOption;
     }
 
-    public static CipherOption find(String cipherOptionName) {
+    public static CipherOption find(String cipherOption) {
         try {
-            CipherOptions value = CipherOptions.valueOf(cipherOptionName.toUpperCase());
+            CipherOptions value = CipherOptions.valueOf(cipherOption.toUpperCase());
             return value.cipherOption;
         } catch (IllegalArgumentException e) {
-            throw new AppException("not found " + cipherOptionName, e);
+            throw new AppException("not found " + cipherOption, e);
         }
     }
 }

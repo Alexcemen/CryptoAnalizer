@@ -2,7 +2,7 @@ package cipher.arguments;
 
 import cipher.resources.fileNames;
 
-public class EncodeOption extends AbstractOption implements CipherOption {
+public class EncodeOption extends CipherOption {
     @Override
     public String[] requestArguments() {
         String inputFileNameForEncryption = getInputFileName();

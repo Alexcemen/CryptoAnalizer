@@ -1,5 +1,17 @@
 package cipher.arguments;
 
-public interface CipherOption {
-    String[] requestArguments();
-    }
+import cipher.Validator;
+
+import java.util.Scanner;
+
+public abstract class CipherOption {
+    Validator validator = new Validator();
+    Scanner scanner = new Scanner(System.in);
+
+    public abstract String getInputFileName();
+
+    public abstract String getOutputFileName();
+
+    public abstract String[] requestArguments();
+
+}

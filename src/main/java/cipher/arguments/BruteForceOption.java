@@ -2,7 +2,8 @@ package cipher.arguments;
 
 import cipher.resources.fileNames;
 
-public class BruteForceOption extends AbstractOption implements CipherOption {
+public class BruteForceOption extends CipherOption {
+
     @Override
     public String[] requestArguments() {
         String inputFileNameForBruteForce = getInputFileName();

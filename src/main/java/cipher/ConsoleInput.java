@@ -1,6 +1,7 @@
 package cipher;
 
 import cipher.arguments.CipherOption;
+
 import java.util.Scanner;
 
 public class ConsoleInput {

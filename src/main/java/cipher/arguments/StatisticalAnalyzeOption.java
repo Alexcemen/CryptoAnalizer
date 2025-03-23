@@ -1,6 +1,6 @@
 package cipher.arguments;
 
-public class StatisticalAnalyzeOption extends AbstractOption implements CipherOption {
+public class StatisticalAnalyzeOption extends CipherOption {
     @Override
     public String[] requestArguments() {
         return new String[] {"STATISTICAL_ANALYZER"};
