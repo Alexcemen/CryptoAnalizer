@@ -2,7 +2,7 @@ package cipher.arguments;
 
 import cipher.resources.fileNames;
 
-public class EncodeOption extends CommonOption implements CipherOption {
+public class EncodeOption extends AbstractOption implements CipherOption {
     @Override
     public String[] requestArguments() {
         return getEncryptionArguments();

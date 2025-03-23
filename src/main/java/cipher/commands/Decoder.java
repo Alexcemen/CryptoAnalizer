@@ -1,13 +1,11 @@
 package cipher.commands;
 
-import cipher.FileManager;
 import cipher.entity.Result;
 import cipher.entity.ResultCode;
-import cipher.resources.Alphabet;
 
 import java.util.Arrays;
 
-public class Decoder extends CommonCommand implements Action {
+public class Decoder extends AbstractCommand implements Action {
 
     private static final String WARNING_ABOUT_ENTERING_INCORRECT_CHARACTERS = "ПАНИКА! КТО-ТО ПРИСЛАЛ НА РАСШИФРОВКУ ТЕКСТ С ЛЕВЫМИ СИМВОЛАМИ!!!";
 

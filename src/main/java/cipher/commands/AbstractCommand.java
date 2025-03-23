@@ -5,7 +5,7 @@ import cipher.resources.Alphabet;
 
 import java.util.Arrays;
 
-public class CommonCommand {
+public abstract class AbstractCommand {
 
     static char[] alphabet = Alphabet.getAlphabet();
 

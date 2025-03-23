@@ -1,19 +1,22 @@
 package cipher.commands;
 
-import cipher.FileManager;
 import cipher.entity.Result;
 import cipher.entity.ResultCode;
-import cipher.resources.Alphabet;
 
 import java.util.Arrays;
 
-public class Encoder extends CommonCommand implements Action {
+public class Encoder extends AbstractCommand implements Action {
 
     @Override
     public Result execute(String[] parameters) {
         String inputFileName = parameters[0];
         String outputFileName = parameters[1];
         int key = Integer.parseInt(parameters[2]);
+
+        //не делать строки с гигантским текстом
+        //а сразу считывать символы с одного потока
+        //шифровать их
+        //и записывать в выходной поток
         String inputText = getText(inputFileName);
         String encryptedText = encrypt(inputText, key);
         fileManager.writeFile(encryptedText, outputFileName);

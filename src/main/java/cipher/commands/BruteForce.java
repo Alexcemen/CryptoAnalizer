@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BruteForce extends CommonCommand implements Action {
+public class BruteForce extends AbstractCommand implements Action {
 
     private static final String WARNING_ABOUT_ENTERING_INCORRECT_CHARACTERS = "ПАНИКА! КТО-ТО ПРИСЛАЛ НА РАСШИФРОВКУ ТЕКСТ С ЛЕВЫМИ СИМВОЛАМИ!!!";
 
