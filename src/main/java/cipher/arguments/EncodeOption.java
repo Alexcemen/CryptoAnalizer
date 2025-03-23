@@ -5,17 +5,14 @@ import cipher.resources.fileNames;
 public class EncodeOption extends AbstractOption implements CipherOption {
     @Override
     public String[] requestArguments() {
-        return getEncryptionArguments();
-    }
-
-    private String[] getEncryptionArguments() {
-        String inputFileNameForEncryption = getInputFileNameForEncryption();
-        String outputFileNameForEncryption = getOutputFileNameForEncryption();
+        String inputFileNameForEncryption = getInputFileName();
+        String outputFileNameForEncryption = getOutputFileName();
         String cipherKey = getCipherKey();
         return new String[]{"ENCODE", inputFileNameForEncryption, outputFileNameForEncryption, cipherKey};
     }
 
-    private String getInputFileNameForEncryption() {
+    @Override
+    public String getInputFileName() {
         while (true) {
             System.out.println("Напишите путь к файлу, который нужно зашифровать.");
             System.out.println("Или нажмите на \"ENTER\", и мы предоставим свой файл");
@@ -31,7 +28,8 @@ public class EncodeOption extends AbstractOption implements CipherOption {
         }
     }
 
-    private String getOutputFileNameForEncryption() {
+    @Override
+    public String getOutputFileName() {
         while (true) {
             System.out.println("Напишите путь к файлу, в который нужно записать зашифрованный текст.");
             System.out.println("Или нажмите на \"ENTER\", и мы предоставим свой файл");

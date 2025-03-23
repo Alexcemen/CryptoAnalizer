@@ -5,17 +5,14 @@ import cipher.resources.fileNames;
 public class DecodeOption extends AbstractOption implements CipherOption {
     @Override
     public String[] requestArguments() {
-        return getDecryptionArguments();
-    }
-
-    private String[] getDecryptionArguments() {
-        String inputFileNameForDecryption = getInputFileNameForDecryption();
-        String outputFileNameForDecryption = getOutputFileNameForDecryption();
+        String inputFileNameForDecryption = getInputFileName();
+        String outputFileNameForDecryption = getOutputFileName();
         String cipherKey = getCipherKey();
         return new String[] {"DECODE", inputFileNameForDecryption, outputFileNameForDecryption, cipherKey};
     }
 
-    private String getInputFileNameForDecryption() {
+    @Override
+    public String getInputFileName() {
         while (true) {
             System.out.println("Напишите путь к файлу, который нужно расшифровать.");
             System.out.println("Или нажмите на \"ENTER\", и мы предоставим свой файл");
@@ -31,7 +28,8 @@ public class DecodeOption extends AbstractOption implements CipherOption {
         }
     }
 
-    private String getOutputFileNameForDecryption() {
+    @Override
+    public String getOutputFileName() {
         while (true) {
             System.out.println("Напишите путь к файлу, в который нужно записать расшифрованный текст.");
             System.out.println("Или нажмите на \"ENTER\", и мы предоставим свой файл");

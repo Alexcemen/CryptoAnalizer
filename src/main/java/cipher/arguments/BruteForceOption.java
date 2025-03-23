@@ -5,16 +5,13 @@ import cipher.resources.fileNames;
 public class BruteForceOption extends AbstractOption implements CipherOption {
     @Override
     public String[] requestArguments() {
-        return getBruteForceArguments();
-    }
-
-    private String[] getBruteForceArguments() {
-        String inputFileNameForBruteForce = getInputFileNameForBruteForce();
-        String outputFileNameForBruteForce = getOutputFileNameForBruteForce();
+        String inputFileNameForBruteForce = getInputFileName();
+        String outputFileNameForBruteForce = getOutputFileName();
         return new String[] {"BRUTE_FORCE", inputFileNameForBruteForce, outputFileNameForBruteForce};
     }
 
-    private String getInputFileNameForBruteForce() {
+    @Override
+    public String getInputFileName() {
         while (true) {
             System.out.println("Напишите путь к зашифрованному файлу, который нужно взломать.");
             System.out.println("Или нажмите на \"ENTER\", и мы предоставим свой файл");
@@ -30,7 +27,8 @@ public class BruteForceOption extends AbstractOption implements CipherOption {
         }
     }
 
-    private String getOutputFileNameForBruteForce() {
+    @Override
+    public String getOutputFileName() {
         while (true) {
             System.out.println("Напишите путь к файлу, в который нужно записать расшифрованный текст.");
             System.out.println("Или нажмите на \"ENTER\", и мы предоставим свой файл");

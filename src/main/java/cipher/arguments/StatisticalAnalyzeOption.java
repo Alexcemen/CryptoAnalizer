@@ -5,4 +5,14 @@ public class StatisticalAnalyzeOption extends AbstractOption implements CipherOp
     public String[] requestArguments() {
         return new String[] {"STATISTICAL_ANALYZER"};
     }
+
+    @Override
+    public String getInputFileName() {
+        return "";
+    }
+
+    @Override
+    public String getOutputFileName() {
+        return "";
+    }
 }
